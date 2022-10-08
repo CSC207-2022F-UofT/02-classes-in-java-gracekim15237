@@ -80,9 +80,7 @@ public class Silly implements Comparable<Silly>{
      *       Make sure you document this method!
      */
 
-
-
-
+    public Silly(String name1, String name2) { this.name = name1 + name2; }
 
     public static void main(String[] args) {
         /**
@@ -105,7 +103,10 @@ public class Silly implements Comparable<Silly>{
 
         Silly x = new Silly("something");
         Silly y = new Silly("something else");
-
+        Silly z = new Silly("something");
+        Silly a = new Silly("Silly #5");
+        Silly b = new Silly("Silly ", "#5");
+        Silly c = new Silly(5);
         /**
          * TODO (Task 2): Below are a bunch of calls to countStatic using
          *                two different instances of Silly.
@@ -116,7 +117,11 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {4, 4};
+
+        System.out.println(a.compareTo(b));
+        System.out.println(y.compareTo(x));
+        System.out.println(first_version.compareTo(second_version));
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -134,6 +139,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+        return this.name.toString();
     }
 
     /**
@@ -156,9 +162,11 @@ public class Silly implements Comparable<Silly>{
         if (!(o instanceof Silly)){
             return false;
         }
-
         Silly other = (Silly) o; // To access .name of o, we need to cast it.
-
+        if (this == o) { return true; }
+        String th = this.name;
+        String oth = other.name;
+        return th.equals(oth);
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
     }
@@ -194,6 +202,9 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+        int th = this.name.length();
+        int oth = other.name.length();
+        return th - oth;
     }
 
     /*
