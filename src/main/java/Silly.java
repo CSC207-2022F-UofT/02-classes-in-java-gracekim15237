@@ -103,10 +103,7 @@ public class Silly implements Comparable<Silly>{
 
         Silly x = new Silly("something");
         Silly y = new Silly("something else");
-        Silly z = new Silly("something");
-        Silly a = new Silly("Silly #5");
-        Silly b = new Silly("Silly ", "#5");
-        Silly c = new Silly(5);
+
         /**
          * TODO (Task 2): Below are a bunch of calls to countStatic using
          *                two different instances of Silly.
@@ -117,11 +114,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {4, 4};
-
-        System.out.println(a.compareTo(b));
-        System.out.println(y.compareTo(x));
-        System.out.println(first_version.compareTo(second_version));
+        int[] expected_values = {1, 2, 3, 4};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
